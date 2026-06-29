@@ -29,3 +29,10 @@ After changing settings, reload the Netflix tab.
   ever doesn't pause, `Cmd + M` (minimize) always works.
 - No icons are bundled; Chrome shows a default icon. That's fine for personal
   load-unpacked use.
+
+## Sponsor
+
+If this is useful to you, you can support development:
+
+- GitHub Sponsors: https://github.com/sponsors/apoorvdarshan
+- Ko-fi: https://ko-fi.com/apoorvdarshan
