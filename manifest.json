@@ -1,20 +1,28 @@
 {
   "manifest_version": 3,
-  "name": "Netflix Auto Pause/Resume",
-  "version": "1.0.0",
-  "description": "Pauses Netflix when you switch away (other app, desktop/Space, tab, or lock) and resumes when you come back.",
+  "name": "Streaming Auto Pause/Resume",
+  "version": "2.0.0",
+  "description": "Pauses Netflix & Prime Video when you switch away (other app, desktop/Space, tab, or lock) and resumes when you come back.",
   "permissions": ["storage"],
-  "host_permissions": ["*://*.netflix.com/*"],
+  "host_permissions": [
+    "*://*.netflix.com/*",
+    "*://*.primevideo.com/*",
+    "*://*.amazon.com/gp/video/*"
+  ],
   "content_scripts": [
     {
-      "matches": ["*://*.netflix.com/*"],
+      "matches": [
+        "*://*.netflix.com/*",
+        "*://*.primevideo.com/*",
+        "*://*.amazon.com/gp/video/*"
+      ],
       "js": ["content.js"],
       "run_at": "document_idle",
       "all_frames": true
     }
   ],
   "action": {
-    "default_title": "Netflix Auto Pause/Resume",
+    "default_title": "Streaming Auto Pause/Resume",
     "default_popup": "popup.html"
   }
 }

@@ -5,7 +5,7 @@
     <style>
       body {
         font-family: -apple-system, system-ui, sans-serif;
-        width: 240px;
+        width: 250px;
         margin: 0;
         padding: 14px 16px;
         background: #141414;
@@ -13,9 +13,17 @@
       }
       h1 {
         font-size: 14px;
-        margin: 0 0 12px;
-        color: #e50914;
+        margin: 0 0 4px;
+        background: linear-gradient(90deg, #e50914, #1399ff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
         letter-spacing: 0.3px;
+      }
+      .sub {
+        font-size: 11px;
+        color: #8c8c8c;
+        margin: 0 0 12px;
       }
       label {
         display: flex;
@@ -40,12 +48,13 @@
     </style>
   </head>
   <body>
-    <h1>Netflix Auto Pause/Resume</h1>
+    <h1>Streaming Auto Pause/Resume</h1>
+    <p class="sub">Netflix &amp; Prime Video</p>
     <label>Enabled <input type="checkbox" id="enabled" /></label>
     <label>Auto-resume when I return <input type="checkbox" id="autoResume" /></label>
     <div class="hint">
       Pauses when you switch app, desktop/Space, tab, or lock the screen. Only
-      resumes what it paused. Reload the Netflix tab after changing settings.
+      resumes what it paused. Reload the video tab after changing settings.
     </div>
     <script src="popup.js"></script>
   </body>

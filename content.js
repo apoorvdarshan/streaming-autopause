@@ -1,4 +1,4 @@
-// Netflix Auto Pause/Resume
+// Streaming Auto Pause/Resume (Netflix + Prime Video)
 // Pauses the video when the window loses focus / tab is hidden / device locks,
 // and resumes ONLY what this extension paused (so it won't override a manual pause).
 
@@ -22,7 +22,18 @@
     // storage may be unavailable in some frames; defaults are fine.
   }
 
-  const getVideo = () => document.querySelector("video");
+  // Pick the main player video, not tiny preview/trailer clips (Prime Video and
+  // Netflix both show muted autoplay previews on browse pages).
+  const getVideo = () => {
+    const vids = Array.from(document.querySelectorAll("video"));
+    if (vids.length === 0) return null;
+    // Prefer a playing video, else the largest one on screen.
+    const playing = vids.find((v) => !v.paused && v.currentTime > 0);
+    if (playing) return playing;
+    return vids.sort(
+      (a, b) => b.clientWidth * b.clientHeight - a.clientWidth * a.clientHeight
+    )[0];
+  };
 
   const isPlaying = (v) =>
     v && !v.paused && !v.ended && v.readyState > 2 && v.currentTime > 0;
