@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Netflix Auto Pause/Resume",
+  "version": "1.0.0",
+  "description": "Pauses Netflix when you switch away (other app, desktop/Space, tab, or lock) and resumes when you come back.",
+  "permissions": ["storage"],
+  "host_permissions": ["*://*.netflix.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["*://*.netflix.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_title": "Netflix Auto Pause/Resume",
+    "default_popup": "popup.html"
+  }
+}
