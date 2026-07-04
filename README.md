@@ -48,6 +48,10 @@ the pause/resume logic is generic and works on any HTML5 `<video>`.
   autoplay preview clips on browse pages.
 - Icons live in `icons/` (16–128px), generated from a single logo image.
 
+## License
+
+[MIT](LICENSE)
+
 ## Sponsor
 
 If this is useful to you, you can support development:
