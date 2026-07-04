@@ -46,8 +46,7 @@ the pause/resume logic is generic and works on any HTML5 `<video>`.
   ever doesn't pause, `Cmd + M` (minimize) always works.
 - It picks the currently-playing (or largest) `<video>`, to avoid grabbing tiny
   autoplay preview clips on browse pages.
-- No icons are bundled; Chrome shows a default icon. That's fine for personal
-  load-unpacked use.
+- Icons live in `icons/` (16–128px), generated from a single logo image.
 
 ## Sponsor
 
