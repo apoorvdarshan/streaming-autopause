@@ -3,59 +3,345 @@
   <head>
     <meta charset="utf-8" />
     <style>
+      :root {
+        --red: #e50914;
+        --blue: #1399ff;
+        --bg: #0a0a0c;
+        --ink: #f2f0eb;
+        --dim: #7d7a84;
+        --line: rgba(255, 255, 255, 0.07);
+        --panel: rgba(255, 255, 255, 0.025);
+        --mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas,
+          monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
       body {
-        font-family: -apple-system, system-ui, sans-serif;
-        width: 250px;
+        width: 300px;
         margin: 0;
-        padding: 14px 16px;
-        background: #141414;
-        color: #fff;
+        color: var(--ink);
+        font: 13px/1.4 "Avenir Next", Futura, "Century Gothic", "Trebuchet MS",
+          sans-serif;
+        background: radial-gradient(
+            130% 100% at 12% -12%,
+            rgba(229, 9, 20, 0.17),
+            transparent 55%
+          ),
+          radial-gradient(
+            130% 100% at 88% -12%,
+            rgba(19, 153, 255, 0.15),
+            transparent 55%
+          ),
+          var(--bg);
+        position: relative;
+        overflow: hidden;
       }
+
+      /* film grain */
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.45;
+        mix-blend-mode: overlay;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='120' height='120' filter='url(%23n)' opacity='0.4'/></svg>");
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        padding: 16px 16px 12px;
+      }
+
+      .mark {
+        flex: none;
+        display: flex;
+        gap: 4px;
+        padding: 8px 9px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--panel);
+      }
+
+      .mark .bar {
+        width: 5px;
+        height: 16px;
+        border-radius: 3px;
+        transition: opacity 0.25s, box-shadow 0.25s;
+      }
+
+      .bar.red {
+        background: linear-gradient(180deg, #ff5252, var(--red));
+        box-shadow: 0 0 9px rgba(229, 9, 20, 0.6);
+      }
+
+      .bar.blue {
+        background: linear-gradient(180deg, #5cb8ff, var(--blue));
+        box-shadow: 0 0 9px rgba(19, 153, 255, 0.55);
+      }
+
+      body.off .mark .bar {
+        opacity: 0.35;
+        box-shadow: none;
+      }
+
       h1 {
-        font-size: 14px;
-        margin: 0 0 4px;
-        background: linear-gradient(90deg, #e50914, #1399ff);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        letter-spacing: 0.3px;
+        font-size: 15px;
+        font-weight: 600;
+        margin: 0;
+        letter-spacing: 0.2px;
       }
-      .sub {
-        font-size: 11px;
-        color: #8c8c8c;
-        margin: 0 0 12px;
+
+      h1 .pause {
+        color: #ff6b6b;
       }
-      label {
+
+      h1 .resume {
+        color: #5db6ff;
+      }
+
+      .services {
+        margin: 3px 0 0;
+        font-family: var(--mono);
+        font-size: 9px;
+        letter-spacing: 2px;
+        color: var(--dim);
+        text-transform: uppercase;
+      }
+
+      .status {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        margin: 0 16px 12px;
+        padding: 9px 11px;
+        border: 1px solid var(--line);
+        border-radius: 9px;
+        background: var(--panel);
+        font-family: var(--mono);
+        font-size: 9.5px;
+        letter-spacing: 1.4px;
+        text-transform: uppercase;
+        color: var(--dim);
+      }
+
+      .dot {
+        flex: none;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #3c3c42;
+        transition: background 0.25s;
+      }
+
+      body:not(.off) .dot {
+        background: var(--red);
+        animation: pulse 2s ease-out infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(229, 9, 20, 0.55);
+        }
+        70%,
+        100% {
+          box-shadow: 0 0 0 7px rgba(229, 9, 20, 0);
+        }
+      }
+
+      main {
+        margin: 0 16px;
+        border: 1px solid var(--line);
+        border-radius: 11px;
+        background: var(--panel);
+        overflow: hidden;
+      }
+
+      .row {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        gap: 12px;
+        padding: 12px;
+        cursor: pointer;
+        transition: background 0.15s, opacity 0.25s;
+      }
+
+      .row:hover {
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .row + .row {
+        border-top: 1px solid var(--line);
+      }
+
+      body.off #autoResumeRow {
+        opacity: 0.4;
+      }
+
+      .row-title {
+        display: block;
         font-size: 13px;
-        padding: 8px 0;
-        cursor: pointer;
+        font-weight: 500;
       }
-      input {
-        width: 18px;
-        height: 18px;
-        accent-color: #e50914;
-        cursor: pointer;
+
+      .row-desc {
+        display: block;
+        margin-top: 2px;
+        font-family: var(--mono);
+        font-size: 8.5px;
+        letter-spacing: 0.9px;
+        text-transform: uppercase;
+        color: var(--dim);
       }
-      .hint {
-        font-size: 11px;
-        color: #8c8c8c;
-        margin-top: 10px;
-        line-height: 1.4;
+
+      .row input {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .switch {
+        flex: none;
+        position: relative;
+        width: 38px;
+        height: 22px;
+        border-radius: 11px;
+        background: #222226;
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+      }
+
+      .switch::before {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #85838c;
+        transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+          background 0.2s;
+      }
+
+      input:checked + .switch::before {
+        transform: translateX(16px);
+        background: #fff;
+      }
+
+      #enabled:checked + .switch {
+        background: linear-gradient(90deg, #a30610, var(--red));
+        border-color: rgba(229, 9, 20, 0.55);
+        box-shadow: 0 0 12px rgba(229, 9, 20, 0.35),
+          inset 0 1px 2px rgba(255, 255, 255, 0.18);
+      }
+
+      #autoResume:checked + .switch {
+        background: linear-gradient(90deg, #0b62ab, var(--blue));
+        border-color: rgba(19, 153, 255, 0.55);
+        box-shadow: 0 0 12px rgba(19, 153, 255, 0.32),
+          inset 0 1px 2px rgba(255, 255, 255, 0.18);
+      }
+
+      input:focus-visible + .switch {
+        outline: 2px solid var(--blue);
+        outline-offset: 2px;
+      }
+
+      footer {
+        padding: 12px 18px 15px;
+        font-size: 10.5px;
+        line-height: 1.55;
+        color: var(--dim);
+      }
+
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(5px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      header,
+      .status,
+      main,
+      footer {
+        animation: rise 0.3s cubic-bezier(0.2, 0.7, 0.3, 1) backwards;
+      }
+
+      .status {
+        animation-delay: 0.05s;
+      }
+
+      main {
+        animation-delay: 0.1s;
+      }
+
+      footer {
+        animation-delay: 0.15s;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before {
+          animation: none !important;
+          transition: none !important;
+        }
       }
     </style>
   </head>
   <body>
-    <h1>Streaming Auto Pause/Resume</h1>
-    <p class="sub">Netflix &amp; Prime Video</p>
-    <label>Enabled <input type="checkbox" id="enabled" /></label>
-    <label>Auto-resume when I return <input type="checkbox" id="autoResume" /></label>
-    <div class="hint">
-      Pauses when you switch app, desktop/Space, tab, or lock the screen. Only
-      resumes what it paused. Reload the video tab after changing settings.
+    <header>
+      <div class="mark">
+        <span class="bar red"></span>
+        <span class="bar blue"></span>
+      </div>
+      <div>
+        <h1>Auto <span class="pause">Pause</span> / <span class="resume">Resume</span></h1>
+        <p class="services">Netflix &nbsp;+&nbsp; Prime Video</p>
+      </div>
+    </header>
+
+    <div class="status">
+      <span class="dot"></span>
+      <span id="statusText">armed &middot; pause + resume</span>
     </div>
+
+    <main>
+      <label class="row">
+        <span class="row-text">
+          <span class="row-title">Enabled</span>
+          <span class="row-desc">Master switch</span>
+        </span>
+        <input type="checkbox" id="enabled" />
+        <span class="switch"></span>
+      </label>
+      <label class="row" id="autoResumeRow">
+        <span class="row-text">
+          <span class="row-title">Auto-resume when I return</span>
+          <span class="row-desc">Off = pause only</span>
+        </span>
+        <input type="checkbox" id="autoResume" />
+        <span class="switch"></span>
+      </label>
+    </main>
+
+    <footer>
+      Pauses when you switch apps, desktops, tabs, or lock the screen. Only
+      ever resumes a pause it made &mdash; never yours. Changes apply
+      instantly.
+    </footer>
+
     <script src="popup.js"></script>
   </body>
 </html>
