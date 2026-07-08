@@ -3,7 +3,9 @@
 Copy-paste source for the [developer dashboard](https://chrome.google.com/webstore/devconsole).
 Every field below maps to a dashboard field, in the order the dashboard shows them.
 
-Item ID: _(assigned after the first upload)_
+Item ID: `nafnjeielmlkeinkmbfppfecpfebgcbl`
+
+Live listing: <https://chromewebstore.google.com/detail/streaming-auto-pauseresum/nafnjeielmlkeinkmbfppfecpfebgcbl>
 
 ---
 
@@ -182,13 +184,14 @@ https://github.com/apoorvdarshan/streaming-autopause/blob/master/PRIVACY.md
 
 - [x] `PRIVACY.md` written and pushed
 - [x] Hero screenshot made (`store-assets/screenshot-1-hero-1280x800.png`)
-- [ ] Zip built and uploaded (Package tab shows title + summary from manifest)
-- [ ] Description, category, language filled
-- [ ] Store icon uploaded (128×128)
-- [ ] Screenshots uploaded, hero first
-- [ ] Privacy tab: purpose, 2 justifications, "no data collected", policy URL
-- [ ] Distribution: public, all regions
-- [ ] "Submit for review" (first review typically takes a few days)
+- [x] Zip built and uploaded (Package tab shows title + summary from manifest)
+- [x] Description, category, language filled
+- [x] Store icon uploaded (128×128)
+- [x] Screenshots uploaded, hero first
+- [x] Privacy tab: purpose, 2 justifications, "no data collected", policy URL
+- [x] Distribution: public, all regions
+- [x] "Submit for review" (first review typically takes a few days)
+- [x] **Approved and live** — <https://chromewebstore.google.com/detail/streaming-auto-pauseresum/nafnjeielmlkeinkmbfppfecpfebgcbl>
 
 ### If a reviewer objects to the name
 

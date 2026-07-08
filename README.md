@@ -1,11 +1,20 @@
 # Streaming Auto Pause/Resume
 
+[![Available in the Chrome Web Store](https://img.shields.io/badge/Chrome%20Web%20Store-Install-e50914?logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/streaming-auto-pauseresum/nafnjeielmlkeinkmbfppfecpfebgcbl)
+
 A single Chrome extension that pauses **Netflix** and **Prime Video** when you
 switch away (other app, macOS desktop/Space, tab, or screen lock) and resumes
 when you come back. It only resumes a video **it** paused, so it won't override a
 pause you made on purpose.
 
-## Install (load unpacked)
+## Install
+
+**[Add it from the Chrome Web Store →](https://chromewebstore.google.com/detail/streaming-auto-pauseresum/nafnjeielmlkeinkmbfppfecpfebgcbl)**
+
+Then open Netflix or Prime Video and play something. Switch apps/desktops — it
+pauses; come back — it resumes.
+
+## Install (load unpacked, for development)
 
 1. Open Chrome → go to `chrome://extensions`.
 2. Turn on **Developer mode** (top-right toggle).
