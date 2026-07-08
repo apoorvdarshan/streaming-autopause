@@ -1,6 +1,7 @@
 # Streaming Auto Pause/Resume
 
 [![Available in the Chrome Web Store](https://img.shields.io/badge/Chrome%20Web%20Store-Install-e50914?logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/streaming-auto-pauseresum/nafnjeielmlkeinkmbfppfecpfebgcbl)
+[![Product Hunt](https://img.shields.io/badge/Product%20Hunt-Upvote-da552f?logo=producthunt&logoColor=white)](https://www.producthunt.com/products/streaming-auto-pause-resume)
 
 A single Chrome extension that pauses **Netflix** and **Prime Video** when you
 switch away (other app, macOS desktop/Space, tab, or screen lock) and resumes
