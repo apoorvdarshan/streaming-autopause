@@ -80,7 +80,7 @@ FEATURES
 • Never overrides a pause you made yourself
 • Master on/off toggle in the popup, changes apply instantly
 • Works on Netflix and Prime Video
-• Open source: github.com/apoorvdarshan/streaming-autopause
+• Open source: github.com/aopv/streaming-autopause
 ```
 
 ### Category
@@ -116,8 +116,8 @@ English
 | Field | Value |
 |---|---|
 | Official URL | `None` — requires verifying site ownership in Google Search Console; GitHub repos can't be verified. Homepage URL below covers it. |
-| Homepage URL | `https://github.com/apoorvdarshan/streaming-autopause` |
-| Support URL | `https://github.com/apoorvdarshan/streaming-autopause/issues` |
+| Homepage URL | `https://github.com/aopv/streaming-autopause` |
+| Support URL | `https://github.com/aopv/streaming-autopause/issues` |
 | Mature content | leave **unchecked** — no sexual content, strong language, violence, or drugs/alcohol focus |
 | Item support visibility | either is fine; ON shows a support tab pointing at the URLs above |
 
@@ -165,7 +165,7 @@ Certify all three disclosures:
 ### Privacy policy URL
 
 ```
-https://github.com/apoorvdarshan/streaming-autopause/blob/master/PRIVACY.md
+https://github.com/aopv/streaming-autopause/blob/master/PRIVACY.md
 ```
 
 ---
