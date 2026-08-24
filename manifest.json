@@ -3,7 +3,7 @@
   "name": "Streaming Auto Pause/Resume",
   "version": "2.0.1",
   "description": "Pauses Netflix & Prime Video when you switch away (other app, desktop/Space, tab, or lock) and resumes when you come back.",
-  "homepage_url": "https://aopv.dev",
+  "homepage_url": "https://apoorvdarshan.com",
   "permissions": ["storage"],
   "host_permissions": [
     "*://*.netflix.com/*",

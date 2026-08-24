@@ -55,4 +55,4 @@ full history is public.
 ## Contact
 
 Questions or concerns: open an issue at
-<https://github.com/aopv/streaming-autopause/issues>
+<https://github.com/apoorvdarshan/streaming-autopause/issues>
