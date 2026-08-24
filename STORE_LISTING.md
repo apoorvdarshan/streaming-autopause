@@ -11,13 +11,13 @@ Live listing: <https://chromewebstore.google.com/detail/streaming-auto-pauseresu
 
 ## Build → Package
 
-Upload: `dist/streaming-autopause-2.0.0.zip`
+Upload: `dist/streaming-autopause-2.0.1.zip`
 
 The repo root is the extension — rebuild after any change:
 
 ```sh
-mkdir -p dist && rm -f dist/streaming-autopause-2.0.0.zip && \
-zip -qr dist/streaming-autopause-2.0.0.zip \
+mkdir -p dist && rm -f dist/streaming-autopause-2.0.1.zip && \
+zip -qr dist/streaming-autopause-2.0.1.zip \
   manifest.json content.js popup.html popup.js icons -x '.*'
 ```
 
@@ -115,8 +115,8 @@ English
 
 | Field | Value |
 |---|---|
-| Official URL | `None` — requires verifying site ownership in Google Search Console; GitHub repos can't be verified. Homepage URL below covers it. |
-| Homepage URL | `https://github.com/aopv/streaming-autopause` |
+| Official URL | `https://aopv.dev` — use once ownership is verified in Google Search Console. |
+| Homepage URL | `https://aopv.dev` |
 | Support URL | `https://github.com/aopv/streaming-autopause/issues` |
 | Mature content | leave **unchecked** — no sexual content, strong language, violence, or drugs/alcohol focus |
 | Item support visibility | either is fine; ON shows a support tab pointing at the URLs above |

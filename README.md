@@ -66,5 +66,5 @@ the pause/resume logic is generic and works on any HTML5 `<video>`.
 
 If this is useful to you, you can support development:
 
-- GitHub Sponsors: https://github.com/sponsors/apoorvdarshan
-- Ko-fi: https://ko-fi.com/apoorvdarshan
+- GitHub Sponsors: https://github.com/sponsors/aopv
+- Ko-fi: https://ko-fi.com/apv
