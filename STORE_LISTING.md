@@ -11,13 +11,13 @@ Live listing: <https://chromewebstore.google.com/detail/streaming-auto-pauseresu
 
 ## Build → Package
 
-Upload: `dist/streaming-autopause-2.0.1.zip`
+Upload: `dist/streaming-autopause-2.0.2.zip`
 
 The repo root is the extension — rebuild after any change:
 
 ```sh
-mkdir -p dist && rm -f dist/streaming-autopause-2.0.1.zip && \
-zip -qr dist/streaming-autopause-2.0.1.zip \
+mkdir -p dist && rm -f dist/streaming-autopause-2.0.2.zip && \
+zip -qr dist/streaming-autopause-2.0.2.zip \
   manifest.json content.js popup.html popup.js icons -x '.*'
 ```
 
